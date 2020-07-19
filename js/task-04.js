@@ -1,14 +1,12 @@
 "use strict";
 
 const formatString = function (string) {
-  if (string.length > 40) {
-    let counterLetter = string[0];
-    for (let i = 1; i <= 40; i += 1) {
-      counterLetter += string[i];
-    }
-    return `${counterLetter}...`;
+  let counterLetter = string[0];
+
+  for (let i = 1; i <= 40; i += 1) {
+    counterLetter += string[i];
   }
-  return string;
+  return string.length > 40 ? `${counterLetter}...` : string;
 };
 
 /*
@@ -29,9 +27,3 @@ console.log(
   )
 );
 // // вернется форматированная строка
-
-console.log(
-  formatString(
-    "Кажется, мой код - просто какой-то бред:)Но почему-то он работает"
-  )
-);
